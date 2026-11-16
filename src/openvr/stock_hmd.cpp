@@ -718,7 +718,7 @@ std::string StockHmd::DefaultPath() {
   return std::string(u8.begin(), u8.end());
 #else
   // The installer's copy beside us first (openhouse installed into SteamVR); else SteamVR's own
-  // driver where it lives (openhouse installed elsewhere, e.g. /usr/lib/openvr/drivers).
+  // driver where it lives (openhouse installed elsewhere, e.g. /usr/share/openhouse).
   Dl_info info{};
   if (dladdr(reinterpret_cast<void*>(&StockHmd::DefaultPath), &info) && info.dli_fname) {
     const auto path = std::filesystem::path(info.dli_fname).parent_path() / "driver_lighthouse.so.stock";
